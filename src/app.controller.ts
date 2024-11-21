@@ -5,10 +5,10 @@ import { get } from 'mongoose';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
+  
   @Get('/')
   
-  @Render('HawkTuah')
+  @Render('index')
   root() {
     return { message: 'Hello world!' };
   }
