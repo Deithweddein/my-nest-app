@@ -1,13 +1,21 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type todoDocument = todo & Document;
+export type TodoDocument = Todo & Document;
 
 @Schema()
-export class todo {
+export class Todo {
   @Prop()
-  todoName: string;
-  
+  title: string;
+
+  @Prop()
+  description: string;
+
+  @Prop()
+  completed: boolean;
+
+  @Prop({ default: Date.now })
+  createdAt: Date;
 }
 
-export const CatSchema = SchemaFactory.createForClass(todo);
+export const TodoSchema = SchemaFactory.createForClass(Todo);
